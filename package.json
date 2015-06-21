@@ -1,0 +1,15 @@
+{
+  "name": "pmmcache",
+  "version": "1.0.0",
+  "description": "Poor Man's Memcache, lightweight zeromq-based client/server.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Evan Lawrence-Hurt",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^3.9.3",
+    "zmq": "^2.11.1"
+  }
+}
