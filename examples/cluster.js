@@ -12,7 +12,7 @@ else {
     var client = new pmm.Client(port);
     client.connect();
     var i = 0;
-    setInterval(function(){
+    var interval = setInterval(function(){
         client.set(i + '', i, 1000, function(err){
             console.log('set i to ' + i);
             console.log(err);
@@ -24,5 +24,7 @@ else {
 
         i++;
     }, 100);
+
+    setTimeout(function(){ clearInterval(interval); }, 1000);
 
 }
