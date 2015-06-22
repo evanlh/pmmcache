@@ -13,15 +13,16 @@ else {
     client.connect();
     var i = 0;
     setInterval(function(){
-        client.set(i, i, 1000, function(err, response){
+        client.set(i + '', i, 1000, function(err){
+            console.log('set i to ' + i);
+            console.log(err);
+        });
+        client.get(i + '', function(err, response){
+            console.log('got i for ' + i);
             console.log(err, response);
         });
+
         i++;
     }, 100);
 
-    setInterval(function(){
-        client.get(i, function(err, response){
-            console.log(err, response);
-        });
-    }, 200);
 }
