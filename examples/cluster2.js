@@ -1,7 +1,7 @@
 var pmm = require('../lib/'),
     cluster = require('cluster'),
-    // port = 'tcp://127.0.0.1:3333';
-    port = 'inproc://mymemcache';
+    port = 'tcp://127.0.0.1:3333';
+    // port = 'inproc://mymemcache';
 
 if (cluster.isMaster){
   for (var i = 0; i < 5; i ++) cluster.fork();
@@ -16,8 +16,6 @@ if (cluster.isMaster){
   }, 1000);
 }
 else {
-  setTimeout(function(){
-
     var client = new pmm.Client(port);
     client.connect();
     var i = 0,
@@ -26,13 +24,13 @@ else {
       if (err) console.log(err);
     };
 
-    while (1){
-      var combined = [i, i];
-      client.set(process.pid + "-" + combined.join("-"), combined, 24*60*1000, onError);
-      i++;
-      combined = null;
-    }
-
-  }, 5000);
+  // setInterval(function(){
+  while (1){
+    var combined = [i, i];
+    client.set(process.pid + "-" + combined.join("-"), combined, 24*60*1000, onError);
+    i++;
+    combined = null;
+  }
+  // }, 0);
 
 }

@@ -9,6 +9,7 @@
   "author": "Evan Lawrence-Hurt",
   "license": "ISC",
   "dependencies": {
+    "json-buffer": "^2.0.11",
     "lodash": "^3.9.3",
     "msgpack5": "^2.3.0",
     "zmq": "^2.11.1"
