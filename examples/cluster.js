@@ -7,6 +7,10 @@ if (cluster.isMaster){
 
     var server = new pmm.Server(port);
     server.start();
+
+    setInterval(function(){
+      console.dir(server._cache);
+    }, 10000);
 }
 else {
     var client = new pmm.Client(port);
